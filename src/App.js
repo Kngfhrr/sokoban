@@ -6,9 +6,9 @@ class App extends Component {
      level: [
       [0, 0, 1, 1, 1, 1, 1, 0],
       [1, 1, 1, 0, 0, 0, 1, 0],
-      [1, 0, 0, 3, 0, 2, 1, 0],
+      [1, 0, 0, 3, 0, 0, 1, 0],
       [1, 1, 1, 0, 0, 0, 1, 0],
-      [1, 0, 1, 1, 2, 0, 1, 0],
+      [1, 0, 1, 1, 0, 0, 1, 0],
       [1, 0, 1, 0, 0, 0, 1, 1],
       [1, 0, 0, 0, 0, 0, 0, 1],
       [1, 0, 0, 0, 0, 0, 0, 1],
@@ -37,9 +37,9 @@ class App extends Component {
     const leftCell = level[position.row][position.cell-1];
     console.log(leftCell)
     console.log(level[position.cell])
-    // if (leftCell) {
-    //   return;
-    // }
+    if (leftCell) {
+      return;
+    }
     if (leftCell === 0) {
       level[position.row][position.cell] = 0;
       level[position.row][position.cell - 1] = 3;
@@ -71,7 +71,7 @@ class App extends Component {
  moveUp=()=>{
    const position = this.findPlayerPosition();
    const level = [...this.state.level]
-   const upCell = level[position.row][position.cell-1];
+   const upCell = level[position.row-1][position.cell];
    console.log(upCell)
    if(upCell===0) {
      level[position.row][position.cell]=0;
